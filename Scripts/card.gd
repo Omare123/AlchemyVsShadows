@@ -1,8 +1,6 @@
-class_name AlchemyCard extends Container
+class_name AlchemyCard extends Node2D
 @onready var animation_player = $AnimationPlayer
 @onready var card_layout = $CardLayout
-@onready var card_copy = preload("res://Scene/card_holder.tscn")
-const card_holder = "Board/CardHolder"
 
 enum {
 	ON_HAND,
@@ -11,70 +9,47 @@ enum {
 }
 var cardHighlighted = false
 var state = ON_HAND
-
-func change_state(new_state):
-	state = new_state
-		
-func _on_mouse_entered():
-	if state == ON_HAND:
-		animation_player.play("Select")
-	cardHighlighted = true
-
-func _on_mouse_exited():
-	if state == ON_HAND:
-		animation_player.play("Deselect")
-	cardHighlighted = false
+var draggable = false
+var is_inside_dragable = false
+var offset: Vector2
+var initialPos: Vector2
 
 # Esto maneja de manera individual los eventos que se hagan en cada carta
-func _on_gui_input(event):
-	match state:
-		ON_HAND: 
-			createCopy(event)
-		ON_FIELD:
-			move_card(event)
-		ATTACK:
-			pass
-		_: 
-			pass
-
-func createCopy(event):
-	if (event is InputEventMouseButton) and (event.button_index == 1):
-		if event.button_mask == 1:
-			#press down
-			card_on_heand()
-		elif event.button_mask == 0:
-			#Place the card outside board
-			if !Game.mouseOnPlacement:
-				cardHighlighted = false
-				card_layout.show()
-			else:
-				#Place the card on board
-				#self.queue_free()
-				get_node("../../AlchemyPlacement").placeCard(self)
-			for i in get_tree().get_root().get_node(card_holder).get_child_count():
-					get_tree().get_root().get_node(card_holder).get_child(i).queue_free()
-			Game.cardSelected = false
+func _process(delta):
+	if not self.draggable:
+		return
+	move_card()
 			
-func move_card(event):
-	if (event is InputEventMouseButton) and (event.button_index == 1):
-		if event.button_mask == 1:
-			#press down
-			card_on_heand(true)
-	elif event.button_mask == 0:
-			#Place the card outside board
-			if !Game.mouseOnPlacement:
-				cardHighlighted = false
-				card_layout.show()
-			else:
-				get_node("../../AlchemyPlacement").placeCard(self)
-			for i in get_tree().get_root().get_node(card_holder).get_child_count():
-					get_tree().get_root().get_node(card_holder).get_child(i).queue_free()
-			Game.cardSelected = false
+func move_card():
+	if Input.is_action_just_pressed("click"):
+		#press down
+		initialPos = global_position
+		offset = get_global_mouse_position() - global_position
+		Game.is_draggin = true
+	if Input.is_action_pressed("click"):
+		global_position = get_global_mouse_position() - offset
+	elif Input.is_action_just_released("click"):
+		Game.is_draggin = false
+		var tween = get_tree().create_tween()
+		if self.is_inside_dragable:
+			tween.tween_property(self, "position", get_global_mouse_position() - offset, 0.2).set_ease(Tween.EASE_OUT)
+		else:
+			tween.tween_property(self, "position", initialPos, 0.2).set_ease(Tween.EASE_OUT)
 
-func card_on_heand(hide = false):
-	if cardHighlighted:
-		var cardTemp = card_copy.instantiate()
-		get_tree().get_root().get_node(card_holder).add_child(cardTemp)
-		Game.cardSelected = true
-		if hide:
-			card_layout.hide()
+func _on_area_2d_body_entered(body):
+	if body.is_in_group("dropable"):
+		self.is_inside_dragable = true
+
+func _on_area_2d_body_exited(body):
+	if body.is_in_group("dropable"):
+		self.is_inside_dragable = false
+
+func _on_area_2d_mouse_entered():
+	if not Game.is_draggin:
+		self.draggable = true
+		animation_player.play("Select")
+
+func _on_area_2d_mouse_exited():
+	if not Game.is_draggin:
+		self.draggable = false
+		animation_player.play("Deselect")
