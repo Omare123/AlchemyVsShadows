@@ -3,8 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://7mpcjvvhbq1k" path="res://Assets/cardBacks.png" id="1_acdoq"]
 [ext_resource type="Script" path="res://Scripts/card.gd" id="1_lnsr5"]
 
-[sub_resource type="Animation" id="Animation_a11q1"]
-resource_name = "Select"
+[sub_resource type="Animation" id="Animation_a2nvv"]
+resource_name = "Deselect"
 length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -16,7 +16,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(41, 58), Vector2(42, 26)]
+"values": [Vector2(42, 26), Vector2(41, 58)]
 }
 
 [sub_resource type="Animation" id="Animation_rfevw"]
@@ -34,8 +34,8 @@ tracks/0/keys = {
 "values": [Vector2(43, 57)]
 }
 
-[sub_resource type="Animation" id="Animation_a2nvv"]
-resource_name = "Deselect"
+[sub_resource type="Animation" id="Animation_a11q1"]
+resource_name = "Select"
 length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -47,7 +47,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(42, 26), Vector2(41, 58)]
+"values": [Vector2(41, 58), Vector2(42, 26)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_irwxc"]

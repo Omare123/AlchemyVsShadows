@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/card_placement.gd" id="1_o0x4x"]
 
-[node name="CardPlacement" type="BoxContainer"]
+[node name="AlchemyArea" type="BoxContainer"]
 offset_left = 774.0
 offset_right = 1147.0
 offset_bottom = 454.0
