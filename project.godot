@@ -11,5 +11,14 @@ config_version=5
 [application]
 
 config/name="AlchemyVsShadows"
+run/main_scene="res://Scene/board.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Game="*res://Scripts/Game.gd"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
