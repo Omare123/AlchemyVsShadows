@@ -1,14 +1,14 @@
-extends BoxContainer
+extends Control
 
 enum {
 	ON_HAND,
 	ON_FIELD,
 	ATTACK,
 }
+var offset = Vector2(52, 68)
 
 func _on_mouse_entered():
 	Game.mouseOnPlacement = true
-
 
 func _on_mouse_exited():
 	Game.mouseOnPlacement = false
@@ -18,9 +18,8 @@ func placeCard(card: AlchemyCard):
 	if state == ON_HAND:
 		var duplicated = card.duplicate()
 		duplicated.state = ON_FIELD
-		#var projectResolution = ProjectSettings.get_setting("display/window/size/viewport_width")
-		#var projectResolitionHeight = ProjectSettings.get_setting("display/window/size/viewport_height")
-		#duplicated.global_position = Vector2(projectResolution/2, projectResolitionHeight/2) - self.position
+		duplicated.global_position = get_global_mouse_position() - self.position - offset
 		add_child(duplicated)
 	elif state == ON_FIELD:
-		card.card_layout.show()
+		var tween = card.create_tween()
+		tween.tween_property(self, "global_position", get_global_mouse_position() - self.position, 0.2).set_ease(Tween.EASE_OUT)

@@ -5,33 +5,37 @@ class_name AlchemyCard extends Container
 const card_holder = "Board/CardHolder"
 
 enum {
+	ON_DECK,
 	ON_HAND,
 	ON_FIELD,
 	ATTACK,
 }
 var cardHighlighted = false
-var state = ON_HAND
+var state = ON_DECK
+var offset = Vector2(52, 68)
 
-func change_state(new_state):
-	state = new_state
-		
 func _on_mouse_entered():
-	if state == ON_HAND:
+	if state == ON_DECK:
 		animation_player.play("Select")
 	cardHighlighted = true
 
 func _on_mouse_exited():
-	if state == ON_HAND:
+	if state == ON_DECK:
 		animation_player.play("Deselect")
 	cardHighlighted = false
-
+	
+func _process(delta):
+	if state == ON_HAND:
+		global_position = get_global_mouse_position() - offset
 # Esto maneja de manera individual los eventos que se hagan en cada carta
 func _on_gui_input(event):
 	match state:
-		ON_HAND: 
+		ON_DECK:
 			createCopy(event)
-		ON_FIELD:
+		ON_HAND: 
 			move_card(event)
+		ON_FIELD:
+			pass
 		ATTACK:
 			pass
 		_: 
@@ -41,40 +45,20 @@ func createCopy(event):
 	if (event is InputEventMouseButton) and (event.button_index == 1):
 		if event.button_mask == 1:
 			#press down
-			card_on_heand()
-		elif event.button_mask == 0:
-			#Place the card outside board
-			if !Game.mouseOnPlacement:
-				cardHighlighted = false
-				card_layout.show()
-			else:
-				#Place the card on board
-				#self.queue_free()
-				get_node("../../AlchemyPlacement").placeCard(self)
-			for i in get_tree().get_root().get_node(card_holder).get_child_count():
-					get_tree().get_root().get_node(card_holder).get_child(i).queue_free()
-			Game.cardSelected = false
+			var new_card = duplicate()
+			new_card.state = ON_HAND
+			get_parent().add_child(new_card)
 			
 func move_card(event):
 	if (event is InputEventMouseButton) and (event.button_index == 1):
-		if event.button_mask == 1:
-			#press down
-			card_on_heand(true)
-	elif event.button_mask == 0:
-			#Place the card outside board
-			if !Game.mouseOnPlacement:
-				cardHighlighted = false
-				card_layout.show()
-			else:
-				get_node("../../AlchemyPlacement").placeCard(self)
-			for i in get_tree().get_root().get_node(card_holder).get_child_count():
-					get_tree().get_root().get_node(card_holder).get_child(i).queue_free()
-			Game.cardSelected = false
+		state = ON_FIELD
+		global_position = get_global_mouse_position() - offset
 
 func card_on_heand(hide = false):
 	if cardHighlighted:
-		var cardTemp = card_copy.instantiate()
-		get_tree().get_root().get_node(card_holder).add_child(cardTemp)
-		Game.cardSelected = true
-		if hide:
-			card_layout.hide()
+		global_position = get_global_mouse_position()
+		#var cardTemp = card_copy.instantiate()
+		#get_tree().get_root().get_node(card_holder).add_child(cardTemp)
+		#Game.cardSelected = true
+		#if hide:
+			#card_layout.hide()

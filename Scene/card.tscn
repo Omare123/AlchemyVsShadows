@@ -59,8 +59,10 @@ _data = {
 
 [node name="Card" type="Container"]
 custom_minimum_size = Vector2(105, 136)
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 106.0
+offset_bottom = 137.0
 script = ExtResource("1_lnsr5")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
