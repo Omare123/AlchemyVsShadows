@@ -1,4 +1,3 @@
 extends Node
 
-var cardSelected
-var mouseOnPlacement = false
+var is_draggin = false

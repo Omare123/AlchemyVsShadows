@@ -5,27 +5,15 @@
 
 [node name="Board" type="Node"]
 
-[node name="UI" type="CanvasLayer" parent="."]
+[node name="Card" parent="." instance=ExtResource("2_3tkk3")]
+position = Vector2(878, 553)
 
-[node name="CardContainer" type="HBoxContainer" parent="UI"]
-offset_left = 797.0
-offset_top = 506.0
-offset_right = 1120.0
-offset_bottom = 642.0
-size_flags_vertical = 8
+[node name="Card2" parent="." instance=ExtResource("2_3tkk3")]
+position = Vector2(1032, 552)
 
-[node name="Card" parent="UI/CardContainer" instance=ExtResource("2_3tkk3")]
-layout_mode = 2
+[node name="Card3" parent="." instance=ExtResource("2_3tkk3")]
+position = Vector2(721, 550)
 
-[node name="Card2" parent="UI/CardContainer" instance=ExtResource("2_3tkk3")]
-layout_mode = 2
-
-[node name="Card3" parent="UI/CardContainer" instance=ExtResource("2_3tkk3")]
-layout_mode = 2
-
-[node name="AlchemyPlacement" parent="UI" instance=ExtResource("3_3j2h4")]
-
-[node name="CardHolder" type="Node" parent="."]
-
-[connection signal="mouse_entered" from="UI/CardContainer" to="UI/CardContainer" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="UI/CardContainer" to="UI/CardContainer" method="_on_mouse_exited"]
+[node name="AlchemyPlacement" parent="." instance=ExtResource("3_3j2h4")]
+show_behind_parent = true
+visibility_layer = 2
