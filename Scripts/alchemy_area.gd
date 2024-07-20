@@ -35,7 +35,6 @@ func card_to_combine(card_on_hand):
 			return card
 
 func combine_card(card_on_field: AlchemyCard, card_on_hand: AlchemyCard):
-	print(card_on_field, " ", card_on_hand)
 	var combination = get_combination(card_on_field, card_on_hand)
 	if combination == null:
 		return

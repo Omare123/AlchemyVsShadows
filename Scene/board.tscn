@@ -1,9 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://085m0pgrbo2t"]
+[gd_scene load_steps=4 format=3 uid="uid://085m0pgrbo2t"]
 
+[ext_resource type="PackedScene" uid="uid://cqljujh1nowx0" path="res://Scene/player.tscn" id="1_hg5eg"]
 [ext_resource type="PackedScene" uid="uid://n1f5me5lvj6w" path="res://Scene/alchemy_area.tscn" id="2_31srd"]
 [ext_resource type="Script" path="res://Scripts/card_container.gd" id="3_yxjxn"]
 
 [node name="Board" type="Node"]
+
+[node name="Player" parent="." instance=ExtResource("1_hg5eg")]
+position = Vector2(417, 618)
 
 [node name="UI" type="CanvasLayer" parent="."]
 
