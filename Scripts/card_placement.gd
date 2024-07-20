@@ -1,4 +1,4 @@
-extends Control
+extends Container
 
 enum {
 	ON_HAND,
@@ -13,13 +13,8 @@ func _on_mouse_entered():
 func _on_mouse_exited():
 	Game.mouseOnPlacement = false
 
-func placeCard(card: AlchemyCard):
-	var state = card.state
-	if state == ON_HAND:
-		var duplicated = card.duplicate()
-		duplicated.state = ON_FIELD
-		duplicated.global_position = get_global_mouse_position() - self.position - offset
-		add_child(duplicated)
-	elif state == ON_FIELD:
-		var tween = card.create_tween()
-		tween.tween_property(self, "global_position", get_global_mouse_position() - self.position, 0.2).set_ease(Tween.EASE_OUT)
+func placeCard(card):
+	card.get_parent().remove_child(card)
+	card.global_position = get_global_mouse_position() - self.global_position - offset
+	card.card_layout.show()
+	add_child(card)
