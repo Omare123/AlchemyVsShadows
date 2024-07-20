@@ -12,13 +12,11 @@ var cardHighlighted = false
 var on_deck = true
 var card_on_top = false
 var on_hand = false
-var damage = 0
 
 func _ready():
 	if resource:
-		damage = resource.damage
 		card_layout.texture = resource.texture
-		label.text = str(damage)
+		label.text = str(resource.damage)
 
 func _process(delta):
 	if cardHighlighted and Game.cardSelected and not on_hand:

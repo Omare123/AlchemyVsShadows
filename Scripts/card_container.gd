@@ -1,23 +1,21 @@
 extends Control
 const CARD = preload("res://Scene/card.tscn")
-const RESOURCES_PATH = "res://Resourcers/"
+const deck = ["water", "air", "fire"]
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	for i in 3:
-		var card_name = ""
-		if i == 0:
-			card_name = "air_card.tres"
-		if i == 1:
-			card_name = "fire_card.tres"
-		if i == 2:
-			card_name = "water_card.tres"
-		
-		var card_resource = CardResource.new()
-		card_resource = load(RESOURCES_PATH + card_name)
-		var new_card = CARD.instantiate()
-		new_card.resource = card_resource
-		add_child(new_card)
+		create_card(i)
 
 func _on_child_exiting_tree(node):
+	var i = randi_range(0, 2)
+	create_card(i)
+
+func create_card(index):
+	var cards_json = Game.readJSON()
+	var card_resource = CardResource.new()
+	var path = cards_json[deck[index]].resource
+	card_resource = load(path)
 	var new_card = CARD.instantiate()
+	new_card.resource = card_resource
 	add_child.call_deferred(new_card)
