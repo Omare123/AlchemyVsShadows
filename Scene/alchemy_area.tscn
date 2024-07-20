@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://b13udlpe08gnh"]
+[gd_scene load_steps=3 format=3 uid="uid://b13udlpe08gnh"]
 
 [ext_resource type="Script" path="res://Scripts/card_placement.gd" id="1_o0x4x"]
 
@@ -10,5 +10,13 @@ offset_right = 1147.0
 offset_bottom = 454.0
 script = ExtResource("1_o0x4x")
 
-[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(919, 268)
+shape = SubResource("RectangleShape2D_vf01w")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 699.0
+offset_top = 7.0
+offset_right = 1142.0
+offset_bottom = 526.0
+color = Color(0.627729, 0.441036, 0.380233, 1)

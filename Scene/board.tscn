@@ -5,7 +5,8 @@
 
 [node name="Board" type="Node"]
 
-[node name="UI" type="CanvasLayer" parent="."]
+[node name="Card" parent="." instance=ExtResource("2_3tkk3")]
+position = Vector2(878, 553)
 
 [node name="CardContainer" type="HBoxContainer" parent="UI"]
 offset_left = 797.0
