@@ -4,7 +4,6 @@ const CARD_HOLDER = preload("res://Scene/card_holder.tscn")
 const card_holder = "Board/CardHolder"
 var cardHighlighted = false
 var offset = Vector2(52, 68)
-var on_hand = false
 
 func _on_mouse_entered():
 	cardHighlighted = true
@@ -31,7 +30,7 @@ func _on_gui_input(event):
 					card_layout.show()
 				else:
 					#place card on board
-					get_node("../../AlchemyPlacement").placeCard(self)
+					get_node("../../AlchemyArea").placeCard(self)
 				for i in get_tree().get_root().get_node(card_holder).get_child_count():
 					get_tree().get_root().get_node(card_holder).get_child(i).queue_free()
 				Game.cardSelected = false

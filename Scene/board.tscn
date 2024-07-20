@@ -1,22 +1,25 @@
-[gd_scene load_steps=3 format=3 uid="uid://pa8dsej4uf3y"]
+[gd_scene load_steps=3 format=3 uid="uid://085m0pgrbo2t"]
 
-[ext_resource type="Script" path="res://Scripts/card_container.gd" id="1_8owge"]
-[ext_resource type="PackedScene" uid="uid://b13udlpe08gnh" path="res://Scene/alchemy_area.tscn" id="3_3j2h4"]
+[ext_resource type="PackedScene" uid="uid://n1f5me5lvj6w" path="res://Scene/alchemy_area.tscn" id="2_31srd"]
+[ext_resource type="Script" path="res://Scripts/card_container.gd" id="3_yxjxn"]
 
 [node name="Board" type="Node"]
 
-[node name="Card" parent="." instance=ExtResource("2_3tkk3")]
-position = Vector2(878, 553)
+[node name="UI" type="CanvasLayer" parent="."]
 
 [node name="CardContainer" type="HBoxContainer" parent="UI"]
-offset_left = 797.0
-offset_top = 506.0
-offset_right = 1120.0
-offset_bottom = 642.0
-size_flags_vertical = 8
-script = ExtResource("1_8owge")
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 735.0
+offset_top = 577.0
+offset_right = 1136.0
+offset_bottom = 65.0
+grow_vertical = 2
+theme_override_constants/separation = -20
+alignment = 1
+script = ExtResource("3_yxjxn")
 
-[node name="AlchemyPlacement" parent="UI" instance=ExtResource("3_3j2h4")]
+[node name="AlchemyArea" parent="UI" instance=ExtResource("2_31srd")]
 
 [node name="CardHolder" type="Node" parent="."]
 

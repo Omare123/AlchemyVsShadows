@@ -1,4 +1,4 @@
-extends HBoxContainer
+extends Control
 const CARD = preload("res://Scene/card.tscn")
 
 # Called when the node enters the scene tree for the first time.
