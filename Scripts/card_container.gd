@@ -7,7 +7,6 @@ func _ready():
 		var new_card = CARD.instantiate()
 		add_child(new_card)
 
-
 func _on_child_exiting_tree(node):
 	var new_card = CARD.instantiate()
 	add_child.call_deferred(new_card)
