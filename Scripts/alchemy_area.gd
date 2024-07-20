@@ -49,12 +49,9 @@ func combine_card(card_on_field: AlchemyCard, card_on_hand: AlchemyCard):
 
 func get_combination(card_on_field: AlchemyCard, card_on_hand: AlchemyCard):
 	var card_on_field_data = Game.readJSON()[card_on_field.resource.id]
-	var card_on_hand_data = Game.readJSON()[card_on_hand.resource.id]
-	
 	var combination_on_field_data = card_on_field_data["combinations"]
-	var combination_on_hand_data = card_on_hand_data["combinations"]
 	#had to make it like this because basic card would have combination information
-	if !combination_on_field_data or !combination_on_hand_data:
+	if !(card_on_hand.resource.id in  combination_on_field_data):
 		return
 	return combination_on_field_data[card_on_hand.resource.id]
 

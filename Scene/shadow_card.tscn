@@ -16,4 +16,12 @@ texture = ExtResource("1_c46pq")
 [node name="Timer" type="Timer" parent="."]
 autostart = true
 
+[node name="Health" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="Damage" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
