@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://css7c24nd7ewj"]
+[gd_scene load_steps=6 format=3 uid="uid://css7c24nd7ewj"]
 
 [ext_resource type="Script" path="res://Scripts/card_holder.gd" id="1_ekaam"]
-[ext_resource type="Texture2D" uid="uid://7mpcjvvhbq1k" path="res://Assets/cardBacks.png" id="2_hyw51"]
 
 [sub_resource type="Animation" id="Animation_a2nvv"]
 resource_name = "Deselect"
@@ -72,9 +71,6 @@ libraries = {
 
 [node name="CardLayout" type="Sprite2D" parent="."]
 position = Vector2(43, 57)
-texture = ExtResource("2_hyw51")
-hframes = 4
-vframes = 5
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

@@ -1,5 +1,11 @@
-extends Container
-var offset = Vector2(52, 68)
+class_name CardHolder extends Container
+@export var resource: CardResource
+@onready var card_layout = $CardLayout
+
+func _ready():
+	if resource:
+		card_layout.texture = resource.texture
+		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	global_position = get_global_mouse_position() - offset
+	global_position = get_global_mouse_position() - Game.offset
