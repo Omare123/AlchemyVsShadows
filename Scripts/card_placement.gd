@@ -8,10 +8,10 @@ enum {
 var offset = Vector2(52, 68)
 
 func _on_mouse_entered():
-	Game.mouseOnPlacement = true
+	Game.mouseOnAlchemyArea = true
 
 func _on_mouse_exited():
-	Game.mouseOnPlacement = false
+	Game.mouseOnAlchemyArea = false
 
 func placeCard(card):
 	card.get_parent().remove_child(card)
