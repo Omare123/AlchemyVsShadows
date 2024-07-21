@@ -13,15 +13,25 @@ script = ExtResource("1_rc5x0")
 position = Vector2(55, 67)
 texture = ExtResource("1_c46pq")
 
+[node name="Health" type="Label" parent="Sprite2D"]
+offset_left = -44.0
+offset_top = -41.0
+offset_right = 44.0
+offset_bottom = -17.0
+size_flags_horizontal = 8
+text = "Health: 100"
+horizontal_alignment = 1
+
+[node name="Damage" type="Label" parent="Sprite2D"]
+offset_left = -35.0
+offset_top = 24.0
+offset_right = 33.0
+offset_bottom = 49.0
+size_flags_horizontal = 4
+text = "Attack: 5"
+horizontal_alignment = 1
+
 [node name="Timer" type="Timer" parent="."]
 autostart = true
-
-[node name="Health" type="Label" parent="."]
-layout_mode = 2
-size_flags_horizontal = 8
-
-[node name="Damage" type="Label" parent="."]
-layout_mode = 2
-size_flags_horizontal = 4
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
