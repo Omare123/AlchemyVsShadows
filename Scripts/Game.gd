@@ -3,7 +3,8 @@ extends Node
 const CARDS = "res://Resources/cards.json"
 
 var cardSelected
-var mouseOnPlacement = false
+var mouseOnAlchemyArea = false
+var mouseOnShadowCard = false
 var offset = Vector2(52, 68)
 var card_data 
 

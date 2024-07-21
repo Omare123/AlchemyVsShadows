@@ -12,6 +12,7 @@ const MAX_MOVEMENTS = 3
 var card_size: Vector2 = Game.offset * 2
 var movements_count = 0
 var next_position = Vector2.ZERO
+var mouse_over_card = false
 
 func _process(_delta):
 	healthLabel.text = "health: " + str(health)
@@ -35,9 +36,31 @@ func check_combination():
 	for child in children:
 		if child is ShadowCard and child.position == next_position:
 			return child
+			
+
+func receive_attack(alchemy_attack):
+	var calculated_health = health
+	calculated_health -= alchemy_attack
+	if  calculated_health <= 0:
+		health = 0
+	else:
+		health = calculated_health
+	
+	if health == 0:
+		queue_free()
 
 func _on_timer_timeout():
 	if movements_count < MAX_MOVEMENTS:
 		move_card()
 	else:
 		timer.stop()
+
+
+func _on_mouse_entered():
+	Game.mouseOnShadowCard = true
+	mouse_over_card = true
+
+
+func _on_mouse_exited():
+	Game.mouseOnShadowCard = false
+	mouse_over_card = true

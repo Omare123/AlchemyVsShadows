@@ -51,12 +51,15 @@ func _on_gui_input(event):
 			elif event.button_mask == 0:
 				#press up and let go
 				#check for area
-				if !Game.mouseOnPlacement:
+				if !Game.mouseOnAlchemyArea and !Game.mouseOnShadowCard:
 					cardHighlighted = false
 					card_layout.show()
 				else:
 					#place card on board
-					get_node("../../AlchemyArea").placeCard(self)
+					if Game.mouseOnAlchemyArea:
+						get_node("../../AlchemyArea").placeCard(self)
+					if Game.mouseOnShadowCard:
+						get_node("../../MonsterField").placeCard(self)
 				for i in get_tree().get_root().get_node(card_holder).get_child_count():
 					get_tree().get_root().get_node(card_holder).get_child(i).queue_free()
 				Game.cardSelected = false
