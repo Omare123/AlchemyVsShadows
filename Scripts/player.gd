@@ -1,11 +1,12 @@
+class_name Player 
 extends StaticBody2D
 
+signal health_depleted
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+var health = 100
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func take_damage(damage):
+	print('test')
+	health -= damage
+	if health <= 0:
+		health_depleted.emit()

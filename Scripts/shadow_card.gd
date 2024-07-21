@@ -4,6 +4,8 @@ class_name ShadowCard extends Container
 @onready var damageLabel = $Sprite2D/Damage
 @onready var timer = $Timer
 
+@onready var player: Player = %Player
+
 const MAX_MOVEMENTS = 3
 
 @export var damage = 1
@@ -17,6 +19,10 @@ var mouse_over_card = false
 func _process(_delta):
 	healthLabel.text = "health: " + str(health)
 	damageLabel.text = "attack: " + str(damage)
+
+func attack():
+	if movements_count == MAX_MOVEMENTS:
+		get_tree().get_root().get_node("Board/Player").take_damage(damage)
 
 func move_card():
 	var card_in_next_position = check_combination()
@@ -53,7 +59,8 @@ func _on_timer_timeout():
 	if movements_count < MAX_MOVEMENTS:
 		move_card()
 	else:
-		timer.stop()
+		timer.wait_time = 4
+		attack()
 
 
 func _on_mouse_entered():

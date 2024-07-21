@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://byp4pn7ycbxog"]
+[gd_scene load_steps=3 format=3 uid="uid://dolc88vbej7pb"]
 
 [ext_resource type="Texture2D" uid="uid://sadcikwbudjh" path="res://Assets/cardBacks8.png" id="1_c46pq"]
 [ext_resource type="Script" path="res://Scripts/shadow_card.gd" id="1_rc5x0"]

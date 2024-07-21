@@ -1,12 +1,18 @@
 extends Node
 
 const CARDS = "res://Resources/cards.json"
+const player_scene := preload("res://Scene/player.tscn")
+var player: Player
 
 var cardSelected
 var mouseOnAlchemyArea = false
 var mouseOnShadowCard = false
 var offset = Vector2(52, 68)
-var card_data 
+var card_data
+	
+func create_player():
+	player = player_scene.instantiate()
+	return player
 
 func readJSON():
 	if card_data:
