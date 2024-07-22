@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://n1f5me5lvj6w" path="res://Scene/alchemy_area.tscn" id="2_31srd"]
 [ext_resource type="PackedScene" path="res://Scene/monster_field.tscn" id="3_0itpr"]
 [ext_resource type="Script" path="res://Scripts/card_container.gd" id="3_yxjxn"]
-[ext_resource type="PackedScene" path="res://Scene/spawner.tscn" id="4_uvve0"]
+[ext_resource type="PackedScene" uid="uid://xmp4p6t087w0" path="res://Scene/spawner.tscn" id="4_uvve0"]
 
 [node name="Board" type="Node"]
 

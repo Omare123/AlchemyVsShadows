@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://bwnapyfsbwtci"]
+[gd_scene load_steps=2 format=3 uid="uid://xmp4p6t087w0"]
 
 [ext_resource type="Script" path="res://Scripts/spawner.gd" id="1_p5gm4"]
 
@@ -19,6 +19,7 @@ position = Vector2(442, 10)
 position = Vector2(639, 10)
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 2.5
 autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

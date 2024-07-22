@@ -10,7 +10,8 @@ const MAX_MOVEMENTS = 3
 
 @export var damage = 1
 @export var health = 2
- 
+
+var card_in_next_position: ShadowCard 
 var card_size: Vector2 = Game.offset * 2
 var movements_count = 0
 var next_position = Vector2.ZERO
@@ -22,10 +23,10 @@ func _process(_delta):
 
 func attack():
 	if movements_count == MAX_MOVEMENTS:
-		get_tree().get_root().get_node("Board/Player").take_damage(damage)
+		get_tree().get_root().get_node("Board/Player").take_damage(damage, global_position.x)
 
 func move_card():
-	var card_in_next_position = check_combination()
+	card_in_next_position = check_combination()
 	if card_in_next_position:
 		card_in_next_position.combine_card(self)
 		queue_free()
@@ -43,7 +44,6 @@ func check_combination():
 		if child is ShadowCard and child.position == next_position:
 			return child
 			
-
 func receive_attack(alchemy_attack):
 	var calculated_health = health
 	calculated_health -= alchemy_attack
@@ -58,10 +58,10 @@ func receive_attack(alchemy_attack):
 func _on_timer_timeout():
 	if movements_count < MAX_MOVEMENTS:
 		move_card()
+		if movements_count == MAX_MOVEMENTS:
+			timer.wait_time = 4
 	else:
-		timer.wait_time = 4
 		attack()
-
 
 func _on_mouse_entered():
 	Game.mouseOnShadowCard = true
