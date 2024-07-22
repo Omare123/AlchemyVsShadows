@@ -6,7 +6,6 @@ signal health_depleted
 var health = 100
 
 func take_damage(damage, position_x):
-	print('test', position_x)
 	health -= damage
 	if health <= 0:
 		health_depleted.emit()

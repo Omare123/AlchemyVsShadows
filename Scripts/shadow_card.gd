@@ -7,7 +7,7 @@ class_name ShadowCard extends Container
 @export var damage = 1
 @export var health = 2
 
-const MAX_MOVEMENTS = 5
+const MAX_MOVEMENTS = 4
 
 var card_in_next_position: ShadowCard 
 var card_size: Vector2 = Game.offset * 2
