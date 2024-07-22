@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dskde8yj7ri5w" path="res://Scene/player.tscn" id="1_hg5eg"]
 [ext_resource type="PackedScene" uid="uid://n1f5me5lvj6w" path="res://Scene/alchemy_area.tscn" id="2_31srd"]
-[ext_resource type="PackedScene" path="res://Scene/monster_field.tscn" id="3_0itpr"]
+[ext_resource type="PackedScene" uid="uid://bbbwokoj11xcf" path="res://Scene/monster_field.tscn" id="3_0itpr"]
 [ext_resource type="Script" path="res://Scripts/card_container.gd" id="3_yxjxn"]
 [ext_resource type="PackedScene" uid="uid://xmp4p6t087w0" path="res://Scene/spawner.tscn" id="4_uvve0"]
 
@@ -14,13 +14,10 @@ position = Vector2(417, 618)
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="CardContainer" type="HBoxContainer" parent="UI"]
-anchors_preset = 9
-anchor_bottom = 1.0
-offset_left = 735.0
-offset_top = 577.0
-offset_right = 1136.0
-offset_bottom = 65.0
-grow_vertical = 2
+offset_left = 748.0
+offset_top = 567.0
+offset_right = 1149.0
+offset_bottom = 655.0
 theme_override_constants/separation = -20
 alignment = 1
 script = ExtResource("3_yxjxn")

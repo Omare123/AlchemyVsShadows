@@ -3,7 +3,7 @@ class_name AlchemyCard extends Container
 @export var resource: CardResource
 @onready var card_layout = $CardLayout
 @onready var anim = $Anim
-@onready var label = $Label
+@onready var label = $CardLayout/Label
 
 const CARD_HOLDER = preload("res://Scene/card_holder.tscn")
 const card_holder = "Board/CardHolder"
@@ -16,6 +16,7 @@ var on_hand = false
 func _ready():
 	if resource:
 		card_layout.texture = resource.texture
+		card_layout.scale = Vector2(6,6)
 		label.text = str(resource.damage)
 
 func _process(delta):
@@ -41,7 +42,7 @@ func _on_gui_input(event):
 					#Press down and drag
 					var cardTemp: CardHolder = CARD_HOLDER.instantiate()
 					cardTemp.resource = resource
-					cardTemp.custom_minimum_size = custom_minimum_size
+					#cardTemp.custom_minimum_size = custom_minimum_size
 					get_tree().get_root().get_node(card_holder).add_child(cardTemp)
 					Game.cardSelected = true
 					on_hand = true

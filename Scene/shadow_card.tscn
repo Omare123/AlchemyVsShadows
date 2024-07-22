@@ -1,34 +1,42 @@
 [gd_scene load_steps=3 format=3 uid="uid://dolc88vbej7pb"]
 
-[ext_resource type="Texture2D" uid="uid://sadcikwbudjh" path="res://Assets/cardBacks8.png" id="1_c46pq"]
 [ext_resource type="Script" path="res://Scripts/shadow_card.gd" id="1_rc5x0"]
+[ext_resource type="Texture2D" uid="uid://bg5hjo4cj7r7c" path="res://Assets/Cards/skull.png" id="2_47fr4"]
 
 [node name="Shadow_card" type="Container"]
-custom_minimum_size = Vector2(110, 140)
-offset_right = 82.0
-offset_bottom = 107.0
+custom_minimum_size = Vector2(16, 16)
+offset_right = 16.0
+offset_bottom = 16.0
+scale = Vector2(6, 6)
 script = ExtResource("1_rc5x0")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(55, 67)
-texture = ExtResource("1_c46pq")
+position = Vector2(7.83333, 8.16667)
+texture = ExtResource("2_47fr4")
 
 [node name="Health" type="Label" parent="Sprite2D"]
-offset_left = -44.0
-offset_top = -41.0
-offset_right = 44.0
-offset_bottom = -17.0
+custom_minimum_size = Vector2(1, 1)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -13.3333
+offset_top = 5.5
+offset_right = -3.33333
+offset_bottom = 17.5
+grow_horizontal = 0
 size_flags_horizontal = 8
-text = "Health: 100"
+theme_override_font_sizes/font_size = 8
+text = "10
+"
 horizontal_alignment = 1
 
 [node name="Damage" type="Label" parent="Sprite2D"]
-offset_left = -35.0
-offset_top = 24.0
-offset_right = 33.0
-offset_bottom = 49.0
-size_flags_horizontal = 4
-text = "Attack: 5"
+offset_left = -11.1667
+offset_top = 6.33333
+offset_right = -1.16667
+offset_bottom = 18.3333
+theme_override_font_sizes/font_size = 8
+text = "5"
 horizontal_alignment = 1
 
 [node name="Timer" type="Timer" parent="."]
