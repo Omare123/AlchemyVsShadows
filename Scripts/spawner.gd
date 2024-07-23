@@ -3,9 +3,12 @@ extends Node2D
 const shawdow_card := preload("res://Scene/shadow_card.tscn")
 @onready var timer = $Timer
 @export var spawners: Array[Marker2D]
+var monster_field: MonstersField
 
 func _ready():
 	Game.timer.timeout.connect(_on_level_up_timeout)
+	monster_field = get_parent()
+	monster_field.no_monsters_on_field.connect(level_up)
 
 func spawn():
 	randomize()
@@ -29,8 +32,12 @@ func _on_timer_timeout():
 	spawn()
 
 func _on_level_up_timeout():
+	print("spawner _on_level_up_timeout")
 	if Game.level < Game.MAXIMUN_LEVEL:
 		timer.stop()
 		timer.wait_time -= 0.5
-		timer.start()
-	Game.timer.start()
+
+func level_up():
+	print("spawner level_up")
+	timer.start()
+	
