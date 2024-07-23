@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ShadowCardResource" load_steps=3 format=3 uid="uid://b4v5e5q8d2aee"]
+
+[ext_resource type="Script" path="res://Scripts/shadow_card_resource.gd" id="1_8vtm4"]
+[ext_resource type="Texture2D" uid="uid://cqhhj7g1afdje" path="res://Assets/Cards/dark eye.png" id="2_1gbov"]
+
+[resource]
+script = ExtResource("1_8vtm4")
+texture = ExtResource("2_1gbov")
+damage = 5
+health = 5
+level = "3"
+walk_speed = 5
+attack_speed = 4

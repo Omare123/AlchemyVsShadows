@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ShadowCardResource" load_steps=3 format=3 uid="uid://bn065mt3usl0h"]
+
+[ext_resource type="Script" path="res://Scripts/shadow_card_resource.gd" id="1_wtiiy"]
+[ext_resource type="Texture2D" uid="uid://bra7p41hod4eb" path="res://Assets/Cards/snake.png" id="2_6lb6w"]
+
+[resource]
+script = ExtResource("1_wtiiy")
+texture = ExtResource("2_6lb6w")
+damage = 1
+health = 1
+level = "1"
+walk_speed = 1
+attack_speed = 3

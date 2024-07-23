@@ -69,6 +69,7 @@ scale = Vector2(6, 6)
 texture = ExtResource("2_ofg21")
 
 [node name="Label" type="Label" parent="CardLayout"]
+visible = false
 anchors_preset = -1
 anchor_left = 0.25
 anchor_top = 0.128

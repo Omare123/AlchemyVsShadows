@@ -30,6 +30,12 @@ script = ExtResource("3_yxjxn")
 
 [node name="CardHolder" type="Node" parent="."]
 
+[node name="Level Up" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
 [connection signal="child_exiting_tree" from="UI/CardContainer" to="UI/CardContainer" method="_on_child_exiting_tree"]
 [connection signal="mouse_entered" from="UI/CardContainer" to="UI/CardContainer" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="UI/CardContainer" to="UI/CardContainer" method="_on_mouse_exited"]
+[connection signal="timeout" from="Level Up" to="." method="_on_level_up_timeout"]
+[connection signal="timeout" from="Level Up" to="UI/MonsterField/Spawner" method="_on_level_up_timeout"]

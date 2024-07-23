@@ -1,0 +1,26 @@
+{
+	"1": {
+		"resources": [
+			"res://Resources/Shadow Cards/bat_card.tres",
+			"res://Resources/Shadow Cards/bronce_warior.tres",
+			"res://Resources/Shadow Cards/goblin_card.tres",
+			"res://Resources/Shadow Cards/snake_card.tres"
+			]
+	},
+	"2": {
+		"resources": [
+			"res://Resources/Shadow Cards/cyclop_card.tres",
+			"res://Resources/Shadow Cards/evil_card.tres",
+			"res://Resources/Shadow Cards/silver_warior_card.tres",
+			"res://Resources/Shadow Cards/skull_card.tres",
+			]
+	},
+	"3": {
+		"resources": [
+			"res://Resources/Shadow Cards/gold_helmet.tres",
+			"res://Resources/Shadow Cards/dark_glow.tres",
+			"res://Resources/Shadow Cards/dark_flames.tres",
+			"res://Resources/Shadow Cards/dark_eye.tres",
+			]
+	},
+}

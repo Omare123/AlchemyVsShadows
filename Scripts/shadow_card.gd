@@ -4,11 +4,13 @@ class_name ShadowCard extends Container
 @onready var healthLabel = $Sprite2D/Health
 @onready var damageLabel = $Sprite2D/Damage
 @onready var timer = $Timer
-
-@export var damage = 1
-@export var health = 2
+@onready var resource: ShadowCardResource
+@export var damage: int
+@export var health: int
+@export var level: String
 
 const MAX_MOVEMENTS = 4
+const MAX_LEVEL = 3
 
 var card_in_next_position: ShadowCard 
 var card_size: Vector2 = Game.offset * 2
@@ -16,6 +18,17 @@ var movements_count = 0
 var next_position = Vector2.ZERO
 var mouse_over_card = false
 
+func _ready():
+	if resource:
+		change_card()
+		
+func change_card():
+	damage = resource.damage
+	health = resource.health
+	level = resource.level
+	timer.wait_time = resource.walk_speed
+	sprite.texture = resource.texture
+	
 func _process(_delta):
 	healthLabel.text = str(health)
 	damageLabel.text = str(damage)
@@ -48,8 +61,24 @@ func move_card():
 	next_position = Vector2(global_position.x, global_position.y + card_size.y )
 
 func combine_card(card: ShadowCard):
-	damage += card.damage
-	health += card.health
+	randomize()
+	var card_level = int(level)
+	var next_level = int(card.level) + card_level
+	if next_level > MAX_LEVEL:
+		next_level = MAX_LEVEL
+		
+	if card_level < MAX_LEVEL:
+		var cards_json = Game.read_shadow_JSON()
+		var new_resource = ShadowCardResource.new()
+		var resources_path= cards_json[str(next_level)]["resources"]
+		var random_range = randi_range(0, resources_path.size() -1)
+		var path = resources_path[random_range]
+		new_resource = load(path)
+		resource = new_resource
+		change_card()
+	else:
+		damage += card.damage
+		health += card.health
 
 func check_combination():
 	var children = get_parent().get_children() 
@@ -72,7 +101,7 @@ func _on_timer_timeout():
 	if movements_count < MAX_MOVEMENTS:
 		move_card()
 		if movements_count == MAX_MOVEMENTS:
-			timer.wait_time = 4
+			timer.wait_time = resource.attack_speed
 	else:
 		attack()
 
