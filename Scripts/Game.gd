@@ -14,7 +14,7 @@ var level = 1
 var offset = Vector2(48, 48)
 var card_data
 var shadow_card_data
-var level_time := 90.0
+var level_time := 30.0
 var shadows_level_cap = 1
 
 func _ready():
@@ -22,7 +22,6 @@ func _ready():
 	add_child(timer)
 	timer.one_shot = true
 	timer.start()
-	timer.timeout.connect(_on_level_up_timeout)
 	
 func create_player():
 	player = player_scene.instantiate()
@@ -42,7 +41,8 @@ func read_shadow_JSON():
 	shadow_card_data = JSON.parse_string(json_as_text)
 	return shadow_card_data
 
-func _on_level_up_timeout():
+func level_up():
 	level += 1
 	if shadows_level_cap < MAXIMUN_LEVEL:
 		shadows_level_cap += 1
+	timer.start()
