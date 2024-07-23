@@ -3,7 +3,6 @@ extends Node2D
 const shawdow_card := preload("res://Scene/shadow_card.tscn")
 @onready var timer = $Timer
 @export var spawners: Array[Marker2D]
-var level_cap = 1
 
 func _ready():
 	Game.timer.timeout.connect(_on_level_up_timeout)
@@ -12,7 +11,7 @@ func spawn():
 	randomize()
 	if !spawners.size():
 		return
-	var random_range = randi_range(1, level_cap)
+	var random_range = randi_range(1, Game.shadows_level_cap)
 	var cards_json = Game.read_shadow_JSON()
 	var card_resource = ShadowCardResource.new()
 	var resources_path= cards_json[str(random_range)]["resources"]
@@ -33,7 +32,5 @@ func _on_level_up_timeout():
 	if Game.level < Game.MAXIMUN_LEVEL:
 		timer.stop()
 		timer.wait_time -= 0.5
-		level_cap += 1
-		level_cap = Game.MAXIMUN_LEVEL
 		timer.start()
 	Game.timer.start()

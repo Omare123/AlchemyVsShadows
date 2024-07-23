@@ -64,10 +64,11 @@ func combine_card(card: ShadowCard):
 	randomize()
 	var card_level = int(level)
 	var next_level = int(card.level) + card_level
-	if next_level > MAX_LEVEL:
-		next_level = MAX_LEVEL
+	var max_evo_level = Game.shadows_level_cap + 1
+	if (next_level > max_evo_level):
+		next_level = max_evo_level
 		
-	if card_level < MAX_LEVEL:
+	if max_evo_level <= Game.MAXIMUN_LEVEL and card_level < max_evo_level:
 		var cards_json = Game.read_shadow_JSON()
 		var new_resource = ShadowCardResource.new()
 		var resources_path= cards_json[str(next_level)]["resources"]
