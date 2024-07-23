@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ShadowCardResource" load_steps=3 format=3 uid="uid://c0l6mu0kmvnvd"]
+
+[ext_resource type="Script" path="res://Scripts/shadow_card_resource.gd" id="1_flkgl"]
+[ext_resource type="Texture2D" uid="uid://riturqvdxrcp" path="res://Assets/Cards/gold helmet.png" id="2_gi4y8"]
+
+[resource]
+script = ExtResource("1_flkgl")
+texture = ExtResource("2_gi4y8")
+damage = 5
+health = 6
+level = "3"
+walk_speed = 3
+attack_speed = 4

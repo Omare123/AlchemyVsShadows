@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CardResource" load_steps=3 format=3 uid="uid://bkwyl2lqbns0i"]
+
+[ext_resource type="Script" path="res://Scripts/card_resource.gd" id="1_4nnnv"]
+[ext_resource type="Texture2D" uid="uid://7y6jjseb4tq5" path="res://Assets/Cards/explosion.png" id="2_ax15b"]
+
+[resource]
+script = ExtResource("1_4nnnv")
+texture = ExtResource("2_ax15b")
+damage = 3
+id = "explosion"

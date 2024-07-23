@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CardResource" load_steps=3 format=3 uid="uid://dwl7vann6y6ap"]
+
+[ext_resource type="Script" path="res://Scripts/card_resource.gd" id="1_pvf73"]
+[ext_resource type="Texture2D" uid="uid://md6xj6t56500" path="res://Assets/Cards/dust.png" id="2_sfkdk"]
+
+[resource]
+script = ExtResource("1_pvf73")
+texture = ExtResource("2_sfkdk")
+damage = 3
+id = "steam"

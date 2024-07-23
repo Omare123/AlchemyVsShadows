@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ShadowCardResource" load_steps=3 format=3 uid="uid://lqxpgcbxxkyq"]
+
+[ext_resource type="Script" path="res://Scripts/shadow_card_resource.gd" id="1_hshwl"]
+[ext_resource type="Texture2D" uid="uid://b03u2lp66c831" path="res://Assets/Cards/dark flames.png" id="2_17kee"]
+
+[resource]
+script = ExtResource("1_hshwl")
+texture = ExtResource("2_17kee")
+damage = 5
+health = 4
+level = "3"
+walk_speed = 3
+attack_speed = 3

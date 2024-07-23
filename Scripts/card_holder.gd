@@ -5,7 +5,6 @@ class_name CardHolder extends Container
 func _ready():
 	if resource:
 		card_layout.texture = resource.texture
-		
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+
 func _process(delta):
 	global_position = get_global_mouse_position() - Game.offset

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ShadowCardResource" load_steps=3 format=3 uid="uid://bvixv7vm8xucy"]
+
+[ext_resource type="Script" path="res://Scripts/shadow_card_resource.gd" id="1_fsav7"]
+[ext_resource type="Texture2D" uid="uid://kiyuc7u7p7qo" path="res://Assets/Cards/goblin.png" id="2_n46ce"]
+
+[resource]
+script = ExtResource("1_fsav7")
+texture = ExtResource("2_n46ce")
+damage = 2
+health = 2
+level = "1"
+walk_speed = 2
+attack_speed = 4

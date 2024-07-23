@@ -1,0 +1,62 @@
+{
+	"air": {
+		"combinations": {
+			"fire": "explosion",
+			"water": "steam",
+			"air": "air 2"
+		},
+		"resource": "res://Resources/Alchemy Cards/air_card.tres"
+	},
+	"fire": {
+		"combinations": {
+			"air": "explosion",
+			"water": "steam",
+			"fire": "fire 2"
+		},
+		"resource": "res://Resources/Alchemy Cards/fire_card.tres"
+	},
+	"water": {
+		"combinations": {
+			"air": "ice",
+			"fire": "steam",
+			"water": "water 2"
+		},
+		"resource": "res://Resources/Alchemy Cards/water_card.tres"
+	},
+	"air 2": {
+		"combinations": {
+			"fire": "explosion",
+			"water": "steam",
+			"air": "air 2"
+		},
+		"resource": "res://Resources/Alchemy Cards/air_2_card.tres"
+	},
+	"fire 2": {
+		"combinations": {
+			"air": "explosion",
+			"water": "steam",
+			"fire": "fire 2"
+		},
+		"resource": "res://Resources/Alchemy Cards/fire_2_card.tres"
+	},
+	"water 2": {
+		"combinations": {
+			"air": "ice",
+			"fire": "steam",
+			"water": "water 2"
+		},
+		"resource": "res://Resources/Alchemy Cards/water_2_card.tres"
+	},
+	"explosion": {
+		"combinations": {},
+		"resource": "res://Resources/Alchemy Cards/explosion_card.tres"
+	},
+	"steam": {
+		"combinations": {},
+		"resource": "res://Resources/Alchemy Cards/steam_card.tres"
+	},
+	"ice": {
+		"combinations": {},
+		"resource": "res://Resources/Alchemy Cards/ice_card.tres"
+	},
+}

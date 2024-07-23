@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ShadowCardResource" load_steps=3 format=3 uid="uid://dmdwtt2xrk2mm"]
+
+[ext_resource type="Script" path="res://Scripts/shadow_card_resource.gd" id="1_lbdpj"]
+[ext_resource type="Texture2D" uid="uid://cr8bbj67lcclg" path="res://Assets/Cards/cyclop.png" id="2_6xm2a"]
+
+[resource]
+script = ExtResource("1_lbdpj")
+texture = ExtResource("2_6xm2a")
+damage = 2
+health = 3
+level = "2"
+walk_speed = 3
+attack_speed = 5

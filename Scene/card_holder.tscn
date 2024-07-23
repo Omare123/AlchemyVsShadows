@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://css7c24nd7ewj"]
+[gd_scene load_steps=7 format=3 uid="uid://css7c24nd7ewj"]
 
 [ext_resource type="Script" path="res://Scripts/card_holder.gd" id="1_ekaam"]
+[ext_resource type="Texture2D" uid="uid://dkwhnwckv6o6y" path="res://Assets/Cards/all40.png" id="2_vfs76"]
 
 [sub_resource type="Animation" id="Animation_a2nvv"]
 resource_name = "Deselect"
@@ -57,11 +58,9 @@ _data = {
 }
 
 [node name="Card" type="Container"]
-custom_minimum_size = Vector2(105, 136)
-offset_left = 1.0
-offset_top = 1.0
-offset_right = 106.0
-offset_bottom = 137.0
+custom_minimum_size = Vector2(96, 96)
+offset_right = 16.0
+offset_bottom = 16.0
 script = ExtResource("1_ekaam")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -71,6 +70,8 @@ libraries = {
 
 [node name="CardLayout" type="Sprite2D" parent="."]
 position = Vector2(43, 57)
+scale = Vector2(6, 6)
+texture = ExtResource("2_vfs76")
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
