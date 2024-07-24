@@ -2,11 +2,8 @@ extends Node
 
 const CARDS = "res://Resources/Alchemy Cards/cards.json"
 const SHADOW_CARDS = "res://Resources/Shadow Cards/shadow_cards.json"
-const player_scene := preload("res://Scene/player.tscn")
-
-@onready var timer: Timer = Timer.new()
 const  MAXIMUN_LEVEL = 3
-var player: Player
+
 var cardSelected
 var mouseOnAlchemyArea = false
 var mouseOnShadowCard = false
@@ -14,18 +11,7 @@ var level = 1
 var offset = Vector2(48, 48)
 var card_data
 var shadow_card_data
-var level_time := 30.0
 var shadows_level_cap = 1
-
-func _ready():
-	timer.set_wait_time(level_time)
-	add_child(timer)
-	timer.one_shot = true
-	timer.start()
-	
-func create_player():
-	player = player_scene.instantiate()
-	return player
 
 func readJSON():
 	if card_data:
@@ -45,4 +31,3 @@ func level_up():
 	level += 1
 	if shadows_level_cap < MAXIMUN_LEVEL:
 		shadows_level_cap += 1
-	timer.start()

@@ -39,7 +39,7 @@ func attack():
 	var actual_position = global_position + Game.offset
 	var impulse_position = Vector2(actual_position.x, actual_position.y  - 30)
 	tween.tween_property(sprite, "global_position", impulse_position, 0.3)
-	tween.tween_property(sprite, "global_position", player.global_position, 0.1)
+	tween.tween_property(sprite, "global_position", player.global_position + Game.offset, 0.1)
 	if movements_count == MAX_MOVEMENTS:
 		player.take_damage(damage, global_position.x)
 	tween.tween_property(sprite, "global_position", actual_position, 0.2).finished
