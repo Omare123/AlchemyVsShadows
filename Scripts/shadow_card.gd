@@ -34,7 +34,7 @@ func _process(_delta):
 	damageLabel.text = str(damage)
 
 func attack():
-	var player:Player = get_tree().get_root().get_node("Board/Player")
+	var player:Player = get_tree().get_root().get_node("Board/Battle UI/Player")
 	var tween := create_tween().set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_IN)
 	var actual_position = global_position + Game.offset
 	var impulse_position = Vector2(actual_position.x, actual_position.y  - 30)

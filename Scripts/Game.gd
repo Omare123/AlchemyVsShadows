@@ -7,11 +7,12 @@ const  MAXIMUN_LEVEL = 3
 var cardSelected
 var mouseOnAlchemyArea = false
 var mouseOnShadowCard = false
-var level = 1
+var level = 0
 var offset = Vector2(48, 48)
 var card_data
 var shadow_card_data
-var shadows_level_cap = 1
+var shadows_level_cap = 0
+var battle_time = false
 
 func readJSON():
 	if card_data:

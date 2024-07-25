@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://085m0pgrbo2t"]
+[gd_scene load_steps=8 format=3 uid="uid://085m0pgrbo2t"]
 
 [ext_resource type="Script" path="res://Scripts/board.gd" id="1_cqv37"]
 [ext_resource type="PackedScene" uid="uid://dskde8yj7ri5w" path="res://Scene/player.tscn" id="1_hg5eg"]
 [ext_resource type="PackedScene" uid="uid://n1f5me5lvj6w" path="res://Scene/alchemy_area.tscn" id="2_31srd"]
+[ext_resource type="Script" path="res://Scripts/deck.gd" id="2_i7nkm"]
 [ext_resource type="PackedScene" uid="uid://bbbwokoj11xcf" path="res://Scene/monster_field.tscn" id="3_0itpr"]
 [ext_resource type="Script" path="res://Scripts/card_container.gd" id="3_yxjxn"]
 [ext_resource type="PackedScene" uid="uid://xmp4p6t087w0" path="res://Scene/spawner.tscn" id="4_uvve0"]
@@ -10,38 +11,51 @@
 [node name="Board" type="Node"]
 script = ExtResource("1_cqv37")
 
-[node name="Player" parent="." instance=ExtResource("1_hg5eg")]
-offset_left = 372.0
-offset_top = 574.0
-offset_right = 388.0
-offset_bottom = 590.0
+[node name="Battle UI" type="CanvasLayer" parent="."]
+visible = false
 
-[node name="UI" type="CanvasLayer" parent="."]
-
-[node name="CardContainer" type="HBoxContainer" parent="UI"]
+[node name="Deck" type="HBoxContainer" parent="Battle UI"]
 offset_left = 748.0
 offset_top = 567.0
 offset_right = 1149.0
 offset_bottom = 655.0
 theme_override_constants/separation = -20
 alignment = 1
+script = ExtResource("2_i7nkm")
+
+[node name="AlchemyArea" parent="Battle UI" instance=ExtResource("2_31srd")]
+
+[node name="MonsterField" parent="Battle UI" instance=ExtResource("3_0itpr")]
+
+[node name="Spawner" parent="Battle UI/MonsterField" instance=ExtResource("4_uvve0")]
+
+[node name="Player" parent="Battle UI" instance=ExtResource("1_hg5eg")]
+offset_left = 372.0
+offset_top = 574.0
+offset_right = 388.0
+offset_bottom = 590.0
+
+[node name="Alchemy UI" type="CanvasLayer" parent="."]
+
+[node name="AlchemyArea" parent="Alchemy UI" instance=ExtResource("2_31srd")]
+offset_left = -5.0
+offset_bottom = 647.0
+
+[node name="CardContainer" type="HBoxContainer" parent="Alchemy UI"]
+offset_left = 410.0
+offset_top = 566.0
+offset_right = 810.0
+offset_bottom = 654.0
 script = ExtResource("3_yxjxn")
-
-[node name="AlchemyArea" parent="UI" instance=ExtResource("2_31srd")]
-
-[node name="MonsterField" parent="UI" instance=ExtResource("3_0itpr")]
-
-[node name="Spawner" parent="UI/MonsterField" instance=ExtResource("4_uvve0")]
 
 [node name="CardHolder" type="Node" parent="."]
 
 [node name="Level Up" type="Timer" parent="."]
 
-[connection signal="child_exiting_tree" from="UI/CardContainer" to="UI/CardContainer" method="_on_child_exiting_tree"]
-[connection signal="mouse_entered" from="UI/CardContainer" to="UI/CardContainer" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="UI/CardContainer" to="UI/CardContainer" method="_on_mouse_exited"]
-[connection signal="child_exiting_tree" from="UI/MonsterField" to="UI/MonsterField" method="_on_child_exiting_tree"]
-[connection signal="no_monsters_on_field" from="UI/MonsterField" to="." method="_on_monster_field_no_monsters_on_field"]
+[connection signal="child_exiting_tree" from="Battle UI/Deck" to="Battle UI/Deck" method="_on_child_exiting_tree"]
+[connection signal="child_exiting_tree" from="Battle UI/MonsterField" to="Battle UI/MonsterField" method="_on_child_exiting_tree"]
+[connection signal="no_monsters_on_field" from="Battle UI/MonsterField" to="." method="_on_monster_field_no_monsters_on_field"]
+[connection signal="child_exiting_tree" from="Alchemy UI/CardContainer" to="Alchemy UI/CardContainer" method="_on_child_exiting_tree"]
 [connection signal="timeout" from="Level Up" to="." method="_on_level_up_timeout"]
-[connection signal="timeout" from="Level Up" to="UI/MonsterField" method="_on_level_up_timeout"]
-[connection signal="timeout" from="Level Up" to="UI/MonsterField/Spawner" method="_on_level_up_timeout"]
+[connection signal="timeout" from="Level Up" to="Battle UI/MonsterField" method="_on_level_up_timeout"]
+[connection signal="timeout" from="Level Up" to="Battle UI/MonsterField/Spawner" method="_on_level_up_timeout"]

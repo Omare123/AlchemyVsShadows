@@ -2,7 +2,7 @@ class_name MonstersField extends Control
 var timer_is_stop = false
 signal no_monsters_on_field
 
-func monsters_on_field(shadow_card: ShadowCard):
+func monsters_on_field(shadow_card):
 	var children = get_children()
 	for child in children:
 		if child is ShadowCard and child != shadow_card:
@@ -24,5 +24,4 @@ func _on_child_exiting_tree(node):
 	if timer_is_stop and not monsters_on_field(node):
 		print("_on_child_exiting_tree")
 		no_monsters_on_field.emit()
-		get_child(0).start_level()
 		timer_is_stop = false
