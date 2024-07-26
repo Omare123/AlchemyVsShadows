@@ -11,18 +11,24 @@ config_version=5
 [application]
 
 config/name="AlchemyVsShadows"
-run/main_scene="res://Scene/board.tscn"
+run/main_scene="res://Scene/main_menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 Game="*res://Scripts/Game.gd"
+MainTransition="*res://Scene/main_transition.tscn"
+MainMusic="*res://Scene/main_music.tscn"
 
 [display]
 
 window/size/mode=2
 window/stretch/mode="viewport"
+
+[gui]
+
+theme/custom="res://Assets/purr-theme.tres"
 
 [rendering]
 

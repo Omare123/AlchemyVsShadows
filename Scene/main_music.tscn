@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://hkkapg55dnhp"]
+
+[ext_resource type="AudioStream" uid="uid://qwr6rimx3v05" path="res://Assets/Sounds/SFX/706052__m-murray__rpg-shop-village-theme.wav" id="1_oyb32"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_oyb32")
+autoplay = true

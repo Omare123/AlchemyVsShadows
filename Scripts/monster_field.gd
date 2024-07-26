@@ -22,6 +22,5 @@ func _on_level_up_timeout():
 
 func _on_child_exiting_tree(node):
 	if timer_is_stop and not monsters_on_field(node):
-		print("_on_child_exiting_tree")
 		no_monsters_on_field.emit()
 		timer_is_stop = false
