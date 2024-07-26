@@ -3,7 +3,7 @@ class_name AlchemyCard extends Container
 @export var resource: CardResource
 @onready var card_layout = $CardLayout
 @onready var anim = $Anim
-@onready var label = $CardLayout/Label
+@onready var label = $CardLayout/Sword/Label
 
 const CARD_HOLDER = preload("res://Scene/card_holder.tscn")
 const card_holder = "Board/CardHolder"
@@ -58,9 +58,11 @@ func _on_gui_input(event):
 				else:
 					#place card on board
 					if Game.mouseOnAlchemyArea:
-						get_node("../../AlchemyArea").placeCard(self)
+						var alchemy_area = get_node("../../AlchemyArea")
+						alchemy_area.placeCard(self)
 					if Game.mouseOnShadowCard:
-						get_node("../../MonsterField").placeCard(self)
+						var monster_field = get_node("../../MonsterField")
+						monster_field.placeCard(self)
 				for i in get_tree().get_root().get_node(card_holder).get_child_count():
 					get_tree().get_root().get_node(card_holder).get_child(i).queue_free()
 				Game.cardSelected = false

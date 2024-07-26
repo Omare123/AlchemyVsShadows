@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4aswsho62jiu"]
+
+[ext_resource type="Texture2D" uid="uid://dpwvblth4th0l" path="res://Assets/Cards/bread.png" id="1_8wgbq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kkhag"]
+bg_color = Color(0.905882, 0.839216, 0.741176, 1)
+
+[node name="Combinations" type="PanelContainer"]
+clip_contents = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 792.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_kkhag")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(45, 68)
+scale = Vector2(2, 2)
+texture = ExtResource("1_8wgbq")

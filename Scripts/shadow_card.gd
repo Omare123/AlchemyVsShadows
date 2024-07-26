@@ -1,8 +1,8 @@
 class_name ShadowCard extends Container
 
 @onready var sprite = $Sprite2D
-@onready var healthLabel = $Sprite2D/Health
-@onready var damageLabel = $Sprite2D/Damage
+@onready var healthLabel = $Sprite2D/Heart/Health
+@onready var damageLabel = $Sprite2D/Sword/Damage
 @onready var timer = $Timer
 @onready var resource: ShadowCardResource
 @export var damage: int
