@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://085m0pgrbo2t"]
+[gd_scene load_steps=13 format=3 uid="uid://085m0pgrbo2t"]
 
 [ext_resource type="Script" path="res://Scripts/board.gd" id="1_cqv37"]
 [ext_resource type="PackedScene" uid="uid://dskde8yj7ri5w" path="res://Scene/player.tscn" id="1_hg5eg"]
@@ -6,7 +6,6 @@
 [ext_resource type="Script" path="res://Scripts/deck.gd" id="2_i7nkm"]
 [ext_resource type="PackedScene" uid="uid://bbbwokoj11xcf" path="res://Scene/monster_field.tscn" id="3_0itpr"]
 [ext_resource type="Script" path="res://Scripts/card_container.gd" id="3_yxjxn"]
-[ext_resource type="PackedScene" uid="uid://xmp4p6t087w0" path="res://Scene/spawner.tscn" id="4_uvve0"]
 [ext_resource type="Texture2D" uid="uid://s2g1xvjgawll" path="res://Assets/Forest Tileset/tileset.png" id="7_dmr8i"]
 [ext_resource type="PackedScene" uid="uid://c4aswsho62jiu" path="res://Scene/combination_map.tscn" id="8_komcl"]
 
@@ -370,8 +369,6 @@ offset_right = 1133.0
 
 [node name="MonsterField" parent="Battle UI" instance=ExtResource("3_0itpr")]
 
-[node name="Spawner" parent="Battle UI/MonsterField" instance=ExtResource("4_uvve0")]
-
 [node name="Player" parent="Battle UI" instance=ExtResource("1_hg5eg")]
 offset_left = 372.0
 offset_top = 574.0
@@ -420,9 +417,7 @@ layer_1/tile_data = PackedInt32Array(-2818101, 65536, 8, -2752565, 65536, 8, -26
 
 [connection signal="child_entered_tree" from="Battle UI/Deck" to="Battle UI/Deck" method="_on_child_entered_tree"]
 [connection signal="child_exiting_tree" from="Battle UI/Deck" to="Battle UI/Deck" method="_on_child_exiting_tree"]
-[connection signal="child_exiting_tree" from="Battle UI/MonsterField" to="Battle UI/MonsterField" method="_on_child_exiting_tree"]
 [connection signal="no_monsters_on_field" from="Battle UI/MonsterField" to="." method="_on_monster_field_no_monsters_on_field"]
 [connection signal="child_exiting_tree" from="Alchemy UI/CardContainer" to="Alchemy UI/CardContainer" method="_on_child_exiting_tree"]
 [connection signal="timeout" from="Level Up" to="." method="_on_level_up_timeout"]
 [connection signal="timeout" from="Level Up" to="Battle UI/MonsterField" method="_on_level_up_timeout"]
-[connection signal="timeout" from="Level Up" to="Battle UI/MonsterField/Spawner" method="_on_level_up_timeout"]

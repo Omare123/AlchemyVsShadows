@@ -4,6 +4,7 @@ class_name AlchemyCard extends Container
 @onready var card_layout = $CardLayout
 @onready var anim = $Anim
 @onready var label = $CardLayout/Sword/Label
+@onready var audio_stream_player = $Draw
 
 const CARD_HOLDER = preload("res://Scene/card_holder.tscn")
 const card_holder = "Board/CardHolder"
@@ -67,4 +68,5 @@ func _on_gui_input(event):
 					get_tree().get_root().get_node(card_holder).get_child(i).queue_free()
 				Game.cardSelected = false
 				on_hand = false
+				audio_stream_player.play()
 	

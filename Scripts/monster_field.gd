@@ -1,8 +1,15 @@
 class_name MonstersField extends Control
-var timer_is_stop = false
+
 signal no_monsters_on_field
 
+@onready var timer = $Spawner/Timer
+
+var timer_is_stop = false
+
 func monsters_on_field(shadow_card):
+	if !timer.is_stopped():
+		return true
+		
 	var children = get_children()
 	for child in children:
 		if child is ShadowCard and child != shadow_card:
@@ -24,3 +31,7 @@ func _on_child_exiting_tree(node):
 	if timer_is_stop and not monsters_on_field(node):
 		no_monsters_on_field.emit()
 		timer_is_stop = false
+
+func _on_timer_2_timeout():
+	if not monsters_on_field(null):
+		no_monsters_on_field.emit()

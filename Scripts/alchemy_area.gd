@@ -1,4 +1,5 @@
 extends Container
+@onready var combine = $Combine
 
 enum {
 	ON_HAND,
@@ -21,6 +22,7 @@ func placeCard(card_on_hand: AlchemyCard):
 			card_on_field.queue_free()
 			card_on_hand.queue_free()
 			add_child(new_card)
+			combine.play()
 			return
 	card_on_hand.get_parent().remove_child(card_on_hand)
 	card_on_hand.global_position = get_global_mouse_position() - self.global_position - Game.offset
@@ -31,7 +33,7 @@ func placeCard(card_on_hand: AlchemyCard):
 func card_to_combine(card_on_hand):
 	var cards = get_children()
 	for card in cards:
-		if card.card_on_top and card != card_on_hand:
+		if card is AlchemyCard and card.card_on_top and card != card_on_hand:
 			return card
 
 func combine_card(card_on_field: AlchemyCard, card_on_hand: AlchemyCard):

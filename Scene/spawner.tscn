@@ -4,21 +4,4 @@
 
 [node name="Spawner" type="Node2D" node_paths=PackedStringArray("spawners")]
 script = ExtResource("1_p5gm4")
-spawners = [NodePath("Spawn_1"), NodePath("Spawn_2"), NodePath("Spawn_3"), NodePath("Spawn_4")]
-
-[node name="Spawn_1" type="Marker2D" parent="."]
-position = Vector2(53, 50)
-
-[node name="Spawn_2" type="Marker2D" parent="."]
-position = Vector2(245, 50)
-
-[node name="Spawn_3" type="Marker2D" parent="."]
-position = Vector2(442, 50)
-
-[node name="Spawn_4" type="Marker2D" parent="."]
-position = Vector2(639, 50)
-
-[node name="Timer" type="Timer" parent="."]
-wait_time = 4.0
-
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+spawners = [NodePath(""), NodePath(""), NodePath(""), NodePath("")]

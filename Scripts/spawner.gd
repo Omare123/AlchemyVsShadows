@@ -3,7 +3,6 @@ extends Node2D
 const shawdow_card := preload("res://Scene/shadow_card.tscn")
 @onready var timer: Timer = $Timer
 @export var spawners: Array[Marker2D]
-var monster_field: MonstersField
 var time_to_stop = false
 
 func spawn():

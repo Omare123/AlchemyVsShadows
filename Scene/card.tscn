@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://deotsx23pqaeq"]
+[gd_scene load_steps=11 format=3 uid="uid://deotsx23pqaeq"]
 
 [ext_resource type="Script" path="res://Scripts/card.gd" id="1_pef0v"]
 [ext_resource type="Texture2D" uid="uid://dkao44y5ne38o" path="res://Assets/Cards/balck spades.png" id="2_ofg21"]
 [ext_resource type="Texture2D" uid="uid://br8y0p1wj06w0" path="res://Assets/Cards/sword-icon.png" id="3_eofti"]
+[ext_resource type="AudioStream" uid="uid://bk3v6tah2impq" path="res://Assets/Sounds/SFX/card-flick2.mp3" id="4_xh8gr"]
+[ext_resource type="AudioStream" uid="uid://6qfhxdxfolb7" path="res://Assets/Sounds/SFX/card-flick.mp3" id="5_o6a3a"]
 
 [sub_resource type="Animation" id="Animation_7k3b2"]
 resource_name = "DeSelect"
@@ -58,6 +60,13 @@ _data = {
 "Select": SubResource("Animation_0gtgv")
 }
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_207rp"]
+streams_count = 2
+stream_0/stream = ExtResource("4_xh8gr")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("5_o6a3a")
+stream_1/weight = 1.0
+
 [node name="Card" type="Container"]
 custom_minimum_size = Vector2(96, 96)
 offset_right = 119.0
@@ -91,6 +100,10 @@ text = "1"
 libraries = {
 "": SubResource("AnimationLibrary_blu37")
 }
+
+[node name="Draw" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_207rp")
+bus = &"SFX"
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

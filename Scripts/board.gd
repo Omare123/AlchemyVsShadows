@@ -3,16 +3,17 @@ extends Node
 @onready var level_up_timer = $"Level Up"
 @onready var battle_ui = $"Battle UI"
 @onready var alchemy_ui = $"Alchemy UI"
-@onready var spawner = $"Battle UI/MonsterField/Spawner"
+@onready var MonsterField = $"Battle UI/MonsterField"
 @onready var deck = $"Battle UI/Deck"
 @onready var alchemy_area = $"Alchemy UI/AlchemyArea"
-
+var spawner
 var monsters_on_field = true
 var level_time := 30.0
 var max_level = 6
 var min_spawner_timer = 1
 
 func _ready():
+	spawner = MonsterField.get_child(0)
 	level_up_timer.set_wait_time(level_time)
 	level_up_timer.start()
 
@@ -30,9 +31,8 @@ func _on_level_up_timeout():
 		set_battling_env()
 
 func _on_monster_field_no_monsters_on_field():
-	if Game.battle_time:
-		monsters_on_field = false
-	else:
+	monsters_on_field = false
+	if !Game.battle_time:
 		set_crafting_env()
 		
 

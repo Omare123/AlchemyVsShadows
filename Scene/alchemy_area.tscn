@@ -1,6 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://n1f5me5lvj6w"]
+[gd_scene load_steps=5 format=3 uid="uid://n1f5me5lvj6w"]
 
 [ext_resource type="Script" path="res://Scripts/alchemy_area.gd" id="1_01fkb"]
+[ext_resource type="AudioStream" uid="uid://bj7oc0x22dmfm" path="res://Assets/Sounds/SFX/combine.wav" id="2_64pnf"]
+[ext_resource type="AudioStream" uid="uid://orv7selskprb" path="res://Assets/Sounds/SFX/combination.wav" id="3_qe7xk"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_8xrxp"]
+playback_mode = 1
+streams_count = 2
+stream_0/stream = ExtResource("2_64pnf")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("3_qe7xk")
+stream_1/weight = 1.0
 
 [node name="AlchemyArea" type="Container"]
 top_level = true
@@ -10,6 +20,9 @@ offset_top = 5.0
 offset_right = 1153.0
 offset_bottom = 450.0
 script = ExtResource("1_01fkb")
+
+[node name="Combine" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_8xrxp")
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
