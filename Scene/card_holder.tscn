@@ -57,7 +57,9 @@ _data = {
 "Select": SubResource("Animation_a11q1")
 }
 
-[node name="Card" type="Container"]
+[node name="CardHolder" type="Container"]
+top_level = true
+z_index = 3
 custom_minimum_size = Vector2(96, 96)
 offset_right = 16.0
 offset_bottom = 16.0
@@ -72,7 +74,3 @@ libraries = {
 position = Vector2(43, 57)
 scale = Vector2(6, 6)
 texture = ExtResource("2_vfs76")
-
-[connection signal="gui_input" from="." to="." method="_on_gui_input"]
-[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

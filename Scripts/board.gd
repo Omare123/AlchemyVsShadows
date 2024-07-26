@@ -14,7 +14,6 @@ func _ready():
 	level_up_timer.set_wait_time(level_time)
 	level_up_timer.start()
 
-
 func _on_level_up_timeout():
 	Game.battle_time = !Game.battle_time
 	if !Game.battle_time:
@@ -37,6 +36,7 @@ func add_cards_from_table_to_deck():
 		child.reparent(deck)
 
 func set_battling_env():
+	remove_card_holder()
 	add_cards_from_table_to_deck()
 	Game.level_up()
 	monsters_on_field = true
@@ -46,8 +46,12 @@ func set_battling_env():
 	spawner.timer.start()
 
 func set_crafting_env():
+	remove_card_holder()
 	battle_ui.visible = false
 	monsters_on_field = true
 	alchemy_ui.visible = true
 	spawner.timer.stop()
 	level_up_timer.start()
+
+func remove_card_holder():
+	get_child(0).get_child(0).queue_free()
