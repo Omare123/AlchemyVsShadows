@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cp4kyn2eq6ia1"]
 
 [ext_resource type="Script" path="res://Scripts/Main Menu.gd" id="1_wr4c7"]
-[ext_resource type="FontFile" uid="uid://c4gwirnvk2na0" path="res://Assets/Fonts/SuperMario256.ttf" id="2_rctwu"]
+[ext_resource type="FontFile" uid="uid://bgnenibms8spf" path="res://Assets/Fonts/dogicapixel.ttf" id="2_47p2m"]
 
 [node name="Main Menu" type="Control"]
 layout_mode = 3
@@ -15,13 +15,14 @@ script = ExtResource("1_wr4c7")
 [node name="Main" type="Node2D" parent="."]
 
 [node name="Logo" type="Label" parent="Main"]
-offset_left = 59.0
-offset_top = 27.0
-offset_right = 1089.0
-offset_bottom = 107.0
-theme_override_fonts/font = ExtResource("2_rctwu")
-theme_override_font_sizes/font_size = 80
+offset_left = -24.0
+offset_top = 39.0
+offset_right = 1176.0
+offset_bottom = 149.0
+theme_override_fonts/font = ExtResource("2_47p2m")
+theme_override_font_sizes/font_size = 72
 text = "Shadows vs Alchemy"
+horizontal_alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="Main"]
 offset_left = 388.0
@@ -31,6 +32,7 @@ offset_bottom = 542.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Main/MarginContainer"]
 layout_mode = 2
+size_flags_vertical = 4
 
 [node name="Start_Button" type="Button" parent="Main/MarginContainer/VBoxContainer"]
 layout_mode = 2

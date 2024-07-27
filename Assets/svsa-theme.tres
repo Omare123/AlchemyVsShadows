@@ -1,45 +1,53 @@
-[gd_resource type="Theme" load_steps=8 format=3 uid="uid://dsatq8hswnt1o"]
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://dsatq8hswnt1o"]
 
-[ext_resource type="Texture2D" uid="uid://dnwe5brd08fm1" path="res://Assets/Fonts/UI_Wood_Button_Large_Lock_01a2.png" id="2_ebpv4"]
-[ext_resource type="Texture2D" uid="uid://dvd3kgwbthuai" path="res://Assets/Fonts/UI_Wood_Button_Large_Lock_01a3.png" id="2_p3wfx"]
-[ext_resource type="FontFile" uid="uid://c4gwirnvk2na0" path="res://Assets/Fonts/SuperMario256.ttf" id="4_3osx2"]
+[ext_resource type="FontFile" uid="uid://bgnenibms8spf" path="res://Assets/Fonts/dogicapixel.ttf" id="1_vfnwq"]
+[ext_resource type="Texture2D" uid="uid://cwrr3xxip13sr" path="res://Assets/Fonts/wood_button.png" id="3_qhsoy"]
+[ext_resource type="Texture2D" uid="uid://nnl8pgj333js" path="res://Assets/Fonts/pressed_wood_button.png" id="4_m7m1n"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lybrg"]
-texture = ExtResource("2_p3wfx")
+texture = ExtResource("3_qhsoy")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xn7a5"]
-texture = ExtResource("2_p3wfx")
+texture = ExtResource("3_qhsoy")
 texture_margin_left = 12.0
 texture_margin_top = 12.0
 texture_margin_right = 12.0
 texture_margin_bottom = 12.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xa6mp"]
-texture = ExtResource("2_ebpv4")
+texture = ExtResource("3_qhsoy")
 texture_margin_left = 12.0
 texture_margin_top = 12.0
 texture_margin_right = 12.0
 texture_margin_bottom = 12.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f7o41"]
-texture = ExtResource("2_p3wfx")
+texture = ExtResource("4_m7m1n")
 texture_margin_left = 12.0
 texture_margin_top = 12.0
 texture_margin_right = 12.0
 texture_margin_bottom = 12.0
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f55ka"]
+
 [resource]
 Button/colors/font_color = Color(1, 1, 1, 1)
 Button/colors/font_outline_color = Color(0, 0, 0, 1)
 Button/constants/outline_size = 8
-Button/font_sizes/font_size = 32
-Button/fonts/font = ExtResource("4_3osx2")
+Button/font_sizes/font_size = 30
+Button/fonts/font = ExtResource("1_vfnwq")
 Button/styles/focus = SubResource("StyleBoxTexture_lybrg")
 Button/styles/hover = SubResource("StyleBoxTexture_xn7a5")
 Button/styles/normal = SubResource("StyleBoxTexture_xa6mp")
 Button/styles/pressed = SubResource("StyleBoxTexture_f7o41")
 Label/colors/font_color = Color(1, 1, 1, 1)
 Label/colors/font_outline_color = Color(0.0781564, 0.0781564, 0.0781564, 1)
-Label/constants/outline_size = 33
-Label/font_sizes/font_size = 68
-Label/fonts/font = ExtResource("4_3osx2")
+Label/colors/font_shadow_color = Color(0, 0, 0, 0)
+Label/constants/line_spacing = 3
+Label/constants/outline_size = 5
+Label/constants/shadow_offset_x = 1
+Label/constants/shadow_offset_y = 1
+Label/constants/shadow_outline_size = 1
+Label/font_sizes/font_size = 16
+Label/fonts/font = ExtResource("1_vfnwq")
+Label/styles/normal = SubResource("StyleBoxEmpty_f55ka")

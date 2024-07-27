@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://c7h1cy6qnjxd6"]
+[gd_scene load_steps=7 format=3 uid="uid://c7h1cy6qnjxd6"]
 
 [ext_resource type="Script" path="res://Scripts/main_transition.gd" id="1_gokum"]
 [ext_resource type="AudioStream" uid="uid://csuqri4vy1nsa" path="res://Assets/Sounds/SFX/wood.wav" id="2_dpba2"]
+[ext_resource type="Texture2D" uid="uid://cwrr3xxip13sr" path="res://Assets/Fonts/wood_button.png" id="3_vhsp5"]
 
 [sub_resource type="Animation" id="Animation_1hlxc"]
 length = 0.5
@@ -28,6 +29,30 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0, 654)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(583, -316)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D2:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(583, 953)]
 }
 
 [sub_resource type="Animation" id="Animation_u500o"]
@@ -57,6 +82,30 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(0, 654), Vector2(0, 333)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(583, -316), Vector2(583, 20)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(583, 950), Vector2(583, 620)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jbkf8"]
 _data = {
@@ -69,24 +118,28 @@ layer = 2
 script = ExtResource("1_gokum")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 modulate = Color(0.698039, 0.568627, 0.341176, 1)
-anchors_preset = 10
+anchors_preset = 15
 anchor_right = 1.0
+anchor_bottom = 1.0
 offset_left = -3.0
 offset_top = -336.0
-offset_right = 3453.0
-offset_bottom = -3.0
+offset_right = 2306.0
+offset_bottom = 645.0
 grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
 color = Color(0.696985, 0.5705, 0.339805, 1)
 
 [node name="ColorRect2" type="ColorRect" parent="."]
+visible = false
 modulate = Color(0.698039, 0.568627, 0.341176, 1)
 anchors_preset = 10
 anchor_right = 1.0
 offset_top = 654.0
-offset_right = 3456.0
-offset_bottom = 987.0
+offset_right = 2320.0
+offset_bottom = 987.001
 grow_horizontal = 2
 mouse_filter = 2
 color = Color(0.696985, 0.5705, 0.339805, 1)
@@ -98,5 +151,15 @@ libraries = {
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_dpba2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(583, -316)
+scale = Vector2(19, 19)
+texture = ExtResource("3_vhsp5")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(583, 953)
+scale = Vector2(19, 19)
+texture = ExtResource("3_vhsp5")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

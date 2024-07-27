@@ -1,12 +1,12 @@
 extends Control
 const CARD = preload("res://Scene/card.tscn")
 const basic_cards = ["water", "air", "fire"]
-const show_cards = 4
+const show_cards = 3
 
 func _on_child_exiting_tree(node):
 	var child_count = get_child_count()
-	for i in show_cards:
-		var child = get_child(i - 1)
+	for i in range(0, show_cards):
+		var child = get_child(i)
 		if child is AlchemyCard:
 			child.visible = true
 		

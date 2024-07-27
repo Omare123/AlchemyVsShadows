@@ -1,5 +1,7 @@
 extends Node
 
+const GAME_OVER_MENU = preload("res://Scene/game_over_menu.tscn")
+
 @onready var level_up_timer = $"Level Up"
 @onready var battle_ui = $"Battle UI"
 @onready var alchemy_ui = $"Alchemy UI"
@@ -76,3 +78,11 @@ func remove_card_holder():
 	var card_in_hand = get_child(0).get_child(0)
 	if card_in_hand:
 		get_child(0).get_child(0).queue_free()
+
+func game_over():
+	level_up_timer.stop()
+	var game_over_screen := GAME_OVER_MENU.instantiate()
+	add_child.call_deferred(game_over_screen)
+	
+func _on_player_player_dead():
+	game_over()

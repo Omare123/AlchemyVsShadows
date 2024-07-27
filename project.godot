@@ -26,6 +26,10 @@ MainMusic="*res://Scene/main_music.tscn"
 window/size/mode=2
 window/stretch/mode="viewport"
 
+[gui]
+
+theme/custom="res://Assets/svsa-theme.tres"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0

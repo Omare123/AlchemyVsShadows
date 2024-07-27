@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://085m0pgrbo2t"]
+[gd_scene load_steps=12 format=3 uid="uid://085m0pgrbo2t"]
 
 [ext_resource type="Script" path="res://Scripts/board.gd" id="1_cqv37"]
 [ext_resource type="PackedScene" uid="uid://dskde8yj7ri5w" path="res://Scene/player.tscn" id="1_hg5eg"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bbbwokoj11xcf" path="res://Scene/monster_field.tscn" id="3_0itpr"]
 [ext_resource type="Script" path="res://Scripts/card_container.gd" id="3_yxjxn"]
 [ext_resource type="Texture2D" uid="uid://s2g1xvjgawll" path="res://Assets/Forest Tileset/tileset.png" id="7_dmr8i"]
+[ext_resource type="FontFile" uid="uid://bgnenibms8spf" path="res://Assets/Fonts/dogicapixel.ttf" id="8_ew2pu"]
 [ext_resource type="PackedScene" uid="uid://c4aswsho62jiu" path="res://Scene/combination_map.tscn" id="8_komcl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ukkc0"]
@@ -237,17 +238,19 @@ show_behind_parent = true
 offset_left = 791.0
 
 [node name="Label" type="Label" parent="Alchemy UI"]
-offset_left = 913.0
-offset_top = 22.0
-offset_right = 1020.0
+offset_left = 859.0
+offset_top = 25.0
+offset_right = 1097.0
 offset_bottom = 45.0
+theme_override_fonts/font = ExtResource("8_ew2pu")
 text = "Cards Combinations"
 
 [node name="Label2" type="Label" parent="Alchemy UI"]
 offset_left = 298.0
-offset_top = 26.0
-offset_right = 405.0
-offset_bottom = 49.0
+offset_top = 25.0
+offset_right = 456.0
+offset_bottom = 45.0
+theme_override_fonts/font = ExtResource("8_ew2pu")
 text = "Alchemy Area"
 
 [node name="Level Up" type="Timer" parent="."]
@@ -273,6 +276,7 @@ text = "00:00"
 [connection signal="child_entered_tree" from="Battle UI/Deck" to="Battle UI/Deck" method="_on_child_entered_tree"]
 [connection signal="child_exiting_tree" from="Battle UI/Deck" to="Battle UI/Deck" method="_on_child_exiting_tree"]
 [connection signal="no_monsters_on_field" from="Battle UI/MonsterField" to="." method="_on_monster_field_no_monsters_on_field"]
+[connection signal="player_dead" from="Battle UI/Player" to="." method="_on_player_player_dead"]
 [connection signal="child_exiting_tree" from="Alchemy UI/CardContainer" to="Alchemy UI/CardContainer" method="_on_child_exiting_tree"]
 [connection signal="timeout" from="Level Up" to="." method="_on_level_up_timeout"]
 [connection signal="timeout" from="Level Up" to="Battle UI/MonsterField" method="_on_level_up_timeout"]

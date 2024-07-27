@@ -89,13 +89,13 @@ func check_combination():
 			return child
 			
 func receive_attack(alchemy_attack):
+	dead_sound.play()
 	var calculated_health = health
 	calculated_health -= alchemy_attack
 	if  calculated_health <= 0:
 		health = 0
 	else:
 		health = calculated_health
-	dead_sound.play()
 	if health == 0:
 		queue_free()
 
