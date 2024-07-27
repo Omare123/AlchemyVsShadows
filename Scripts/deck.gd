@@ -5,10 +5,12 @@ const show_cards = 4
 
 func _on_child_exiting_tree(node):
 	var child_count = get_child_count()
-	if child_count > show_cards:
-		get_child(show_cards).visible = true
+	for i in show_cards:
+		var child = get_child(i - 1)
+		if child is AlchemyCard:
+			child.visible = true
 		
-	if child_count == 0:
+	if child_count > show_cards:
 		for number in 3:
 			var i = randi_range(0, 2)
 			create_card(i)

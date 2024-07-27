@@ -2,7 +2,7 @@
 	"air": {
 		"combinations": {
 			"fire": "explosion",
-			"water": "steam",
+			"water": "ice",
 			"air": "air 2"
 		},
 		"resource": "res://Resources/Alchemy Cards/air_card.tres"

@@ -6,12 +6,23 @@ extends Node
 @onready var MonsterField = $"Battle UI/MonsterField"
 @onready var deck = $"Battle UI/Deck"
 @onready var alchemy_area = $"Alchemy UI/AlchemyArea"
+@onready var label = $Label
+
 var spawner
 var monsters_on_field = true
 var level_time := 30.0
 var max_level = 6
 var min_spawner_timer = 1
 
+func _process(_delta):
+	label.text = get_time()
+	
+func get_time():
+	var time_left = level_up_timer.time_left
+	var minutes = floor(time_left/60)
+	var seconds = int(time_left) % 60
+	return "Time left: %02d s" % [seconds]
+	
 func _ready():
 	spawner = MonsterField.get_child(0)
 	level_up_timer.set_wait_time(level_time)

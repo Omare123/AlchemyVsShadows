@@ -10,6 +10,8 @@ func _ready():
 func _on_child_exiting_tree(node):
 	var i = randi_range(0, 2)
 	create_card(i)
+	for x in get_child_count():
+		get_child(x).visible = true
 
 func create_card(index):
 	var cards_json = Game.readJSON()

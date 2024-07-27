@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dnwe5brd08fm1" path="res://Assets/Fonts/UI_Wood_Button_Large_Lock_01a2.png" id="2_ebpv4"]
 [ext_resource type="Texture2D" uid="uid://dvd3kgwbthuai" path="res://Assets/Fonts/UI_Wood_Button_Large_Lock_01a3.png" id="2_p3wfx"]
-[ext_resource type="FontFile" uid="uid://hr1jtlprs7s7" path="res://Assets/Fonts/SuperMario256.ttf" id="4_3osx2"]
+[ext_resource type="FontFile" uid="uid://c4gwirnvk2na0" path="res://Assets/Fonts/SuperMario256.ttf" id="4_3osx2"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lybrg"]
 texture = ExtResource("2_p3wfx")

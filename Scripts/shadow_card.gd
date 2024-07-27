@@ -8,6 +8,7 @@ class_name ShadowCard extends Container
 @export var damage: int
 @export var health: int
 @export var level: String
+@onready var dead_sound = $Dead
 
 const MAX_MOVEMENTS = 4
 const MAX_LEVEL = 3
@@ -94,7 +95,7 @@ func receive_attack(alchemy_attack):
 		health = 0
 	else:
 		health = calculated_health
-	
+	dead_sound.play()
 	if health == 0:
 		queue_free()
 
